@@ -62,8 +62,18 @@ class Sorting {
         return result.length
     };
 
-    twoSumExo5(array, sum){
-        
+    twoSumExo5(array, number){
+        if (array.length == 1) {
+            return false
+        }
+        let diff = number - array[0];
+        let element = array.slice(1).find(element => diff == element)
+        if (element == diff) {
+                return true
+        }
+        else if (element == undefined) {
+            return this.twoSumExo5(array.slice(1), number);
+        }        
     };
 
     skyScraperExo6(array) {
@@ -89,6 +99,9 @@ function Apply() {
     
     console.log(`sujet 2: exercice4: Combien d'immeubles ayant la vue sur le soleil (skyline avec une seule boucle?) ? ${list2}`);
     console.log(exercice.skyScraperExo4(list2));
+
+    console.log(`sujet 1: exercice5: y a t'il 2 nombres dans le tableaux dont la somme fait ${value} ?`);
+    console.log(exercice.twoSumExo5(list, value));
 
     console.log(`sujet 2: exercice6: Combien d'immeubles ayant la vue sur le soleil (skyline avec une recursion) ? ${list2}`);
     console.log(exercice.skyScraperExo6(list2));
